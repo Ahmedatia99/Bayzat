@@ -1,0 +1,54 @@
+/*
+ * Global Styles
+ * Application-wide styles built on top of the reset and design tokens.
+ */
+
+@import './reset.css';
+@import './tokens.css';
+
+/* ─── Base ───────────────────────────────────────────────────── */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-page-bg);
+}
+
+/* ─── Focus Styles ───────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Remove outline for mouse clicks (non-keyboard) */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ─── Typography Utilities ───────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+}
+
+/* ─── Root App Container ─────────────────────────────────────── */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Selection ──────────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-primary-subtle);
+  color: var(--color-text-primary);
+}
