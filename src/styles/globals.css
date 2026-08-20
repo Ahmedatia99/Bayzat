@@ -1,54 +1,59 @@
-/*
- * Global Styles
- * Application-wide styles built on top of the reset and design tokens.
- */
+@import 'tailwindcss';
 
-@import './reset.css';
-@import './tokens.css';
+@layer base {
+  :root {
+    --background: hsl(220, 20%, 97%);
+    --foreground: hsl(220, 25%, 12%);
 
-/* ─── Base ───────────────────────────────────────────────────── */
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(220, 25%, 12%);
+
+    --popover: hsl(0, 0%, 100%);
+    --popover-foreground: hsl(220, 25%, 12%);
+
+    --primary: hsl(217, 91%, 55%);
+    --primary-foreground: hsl(0, 0%, 100%);
+
+    --secondary: hsl(220, 20%, 96%);
+    --secondary-foreground: hsl(220, 25%, 12%);
+
+    --muted: hsl(220, 20%, 96%);
+    --muted-foreground: hsl(220, 12%, 46%);
+
+    --accent: hsl(220, 20%, 96%);
+    --accent-foreground: hsl(220, 25%, 12%);
+
+    --destructive: hsl(0, 72%, 51%);
+    --destructive-foreground: hsl(0, 0%, 100%);
+
+    --border: hsl(220, 15%, 88%);
+    --input: hsl(220, 15%, 88%);
+    --ring: hsl(217, 91%, 60%);
+
+    --radius: 0.5rem;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-body {
-  font-family: var(--font-family-sans);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-normal);
-  line-height: var(--line-height-normal);
-  color: var(--color-text-primary);
-  background-color: var(--color-page-bg);
-}
-
-/* ─── Focus Styles ───────────────────────────────────────────── */
-:focus-visible {
-  outline: 2px solid var(--color-focus-ring);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
-/* Remove outline for mouse clicks (non-keyboard) */
-:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* ─── Typography Utilities ───────────────────────────────────── */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
-  color: var(--color-text-primary);
-}
-
-/* ─── Root App Container ─────────────────────────────────────── */
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ─── Selection ──────────────────────────────────────────────── */
-::selection {
-  background-color: var(--color-primary-subtle);
-  color: var(--color-text-primary);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
